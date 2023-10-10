@@ -1,12 +1,14 @@
 import 'package:flix/src/Component/Kamlesh.dart';
 import 'package:flix/src/extra/Cast.dart';
 import 'package:flix/src/Component/Flix.dart';
+import 'package:flix/src/extra/Check.dart';
 import 'package:flix/src/extra/Footer.dart';
 import 'package:flix/src/Component/List.dart';
 import 'package:flix/src/screen/Bollywood.dart';
 import 'package:flix/src/screen/Homepage.dart';
 import 'package:flix/src/screen/Mp3.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 
 

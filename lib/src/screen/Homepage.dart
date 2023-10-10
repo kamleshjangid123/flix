@@ -4,7 +4,9 @@ import 'package:flix/src/extra/Footer.dart';
 import 'package:flix/src/Component/List.dart';
 import 'package:flix/src/extra/Play.dart';
 import 'package:flix/src/screen/Bollywood.dart';
+import 'package:flix/src/screen/Contact.dart';
 import 'package:flix/src/screen/Mp3.dart';
+import 'package:flix/src/screen/Setting.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -15,7 +17,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
- 
+  var _pagesData = [Homepage(),Mp3()];
+ int _selectedItem = 0;
   @override
   Widget build(BuildContext context) {
     
@@ -66,10 +69,12 @@ var h =MediaQuery.of(context).size.height;
                    Container(
                     height: h*.05,
                     margin: EdgeInsets.only(left: 15),
-                    child: Row(children: [
+                    child: TextButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Setting())),
+                        child:
+                     Row(children: [
                       Icon(Icons.settings,size: 40,color: Color.fromARGB(255, 98, 185, 232),),
                       Text('     Setting',style: TextStyle(fontSize: 20,color: Color.fromARGB(255, 98, 185, 232)),)
-                    ]),
+                    ]),)
                   ),
                    Container(
                     height: h*.05,
@@ -82,10 +87,13 @@ var h =MediaQuery.of(context).size.height;
                   , Container(
                     height: h*.05,
                     margin: EdgeInsets.only(left: 15),
-                    child: Row(children: [
+                    child:
+                     TextButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Contact())),
+                        child:
+                     Row(children: [
                       Icon(Icons.contact_support,size: 40,color: Color.fromARGB(255, 98, 185, 232),),
                       Text('     Contact',style: TextStyle(fontSize: 20,color: Color.fromARGB(255, 98, 185, 232)),)
-                    ]),
+                    ]),)
                   )
                   
                 ],
@@ -135,18 +143,18 @@ var h =MediaQuery.of(context).size.height;
       ),
       ],),),
       
-      bottomNavigationBar:Container(
-       height: h*.1,
-        width: w,
-        child:Center(child:  Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-          Text('Movies',style: TextStyle(fontSize: 25,color: Color.fromARGB(255, 98, 185, 232),fontWeight: FontWeight.bold ),),
-           TextButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Mp3())),
-                        child:
-          Text('Music',style: TextStyle(fontSize: 25,color: Color.fromARGB(255, 98, 185, 232),fontWeight: FontWeight.bold ),))
-        ],),)
-      )     
+     
+      bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.movie),label: 'Movies'),
+        BottomNavigationBarItem(icon: Icon(Icons.music_note),label: 'Music')
+      ],
+      currentIndex: _selectedItem,
+      onTap: (setValue){
+        setState(() {
+          _selectedItem = setValue;
+        });
+      },
+      ),     
 
     );
   }
