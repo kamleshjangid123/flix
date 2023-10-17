@@ -8,12 +8,17 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
+       
+  call() {
+    UrlLauncher.launch("tel://7976560571");
+  }
   @override
   Widget build(BuildContext context) {
         
 var w =MediaQuery.of(context).size.width;
 var h =MediaQuery.of(context).size.height;
     return Scaffold(
+ 
       appBar: AppBar(title:
        Text('Contact Us',style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 98, 185, 232),fontWeight: FontWeight.bold),),
        centerTitle: true,),
@@ -35,4 +40,8 @@ var h =MediaQuery.of(context).size.height;
        );
     
   }
+}
+
+class UrlLauncher {
+  static void launch(String s) {}
 }

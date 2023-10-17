@@ -5,6 +5,7 @@ import 'package:flix/src/Component/List.dart';
 import 'package:flix/src/extra/Play.dart';
 import 'package:flix/src/screen/Bollywood.dart';
 import 'package:flix/src/screen/Contact.dart';
+import 'package:flix/src/screen/Movies.dart';
 import 'package:flix/src/screen/Mp3.dart';
 import 'package:flix/src/screen/Setting.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  var _pagesData = [Homepage(),Mp3()];
+  final _pagesData = [const Movies(),const Mp3()];
  int _selectedItem = 0;
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,6 @@ var h =MediaQuery.of(context).size.height;
       appBar: AppBar(title:Center(child:  
       Text("Flix    ",style: TextStyle(color: Color.fromARGB(255, 98, 185, 232),fontSize: 35,fontWeight: FontWeight.bold,))
       )),
-       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-       floatingActionButton:FloatingActionButton(
-        backgroundColor: Color.fromARGB(255, 98, 185, 232),
-        child: Icon(Icons.cast),
-        onPressed: () => print('Cast') ,
-      ),
      
       drawer: Drawer(
         width: w*.6,
@@ -104,48 +99,12 @@ var h =MediaQuery.of(context).size.height;
         ),
       ),
       
-     body:Container(child: Column(children: [
-     
-      Container(
-        height: h*.08,
-        child: List(),
-      ),
-     
-     Container(
-     height: h*.72,
-     width: w,
-     color: Colors.white,
-     child: SingleChildScrollView(
-      child:
-     
-      Column(children: [
-     /* Container(
-        height: h*.1,
-        child: Flix(),
-      ),*/
-      
-      
-      Container(
-        height: h*.75,
-        width: w,
-        child: Bollywood(),
-      ),
-     
-      /*Container(
-        width: w,
-        height: h*.06,
-        
-        child: Footer(),
-      )*/
-     ],),
-     )
-        
-      ),
-      ],),),
+     body:Container(child:_pagesData[_selectedItem],
+     ),
       
      
       bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.movie),label: 'Movies'),
+        BottomNavigationBarItem(icon: Icon(Icons.movie),label: 'Movies',),
         BottomNavigationBarItem(icon: Icon(Icons.music_note),label: 'Music')
       ],
       currentIndex: _selectedItem,
@@ -154,7 +113,7 @@ var h =MediaQuery.of(context).size.height;
           _selectedItem = setValue;
         });
       },
-      ),     
+      ),    
 
     );
   }

@@ -17,7 +17,7 @@ var h =MediaQuery.of(context).size.height;
     Container(
       height: h,
       width: w,
-      margin: EdgeInsets.all(5),
+      margin: EdgeInsets.only(top: 5, left: 5 ,right: 5),
       child:SingleChildScrollView(
       child: Column(mainAxisAlignment: MainAxisAlignment.start,
       children: [

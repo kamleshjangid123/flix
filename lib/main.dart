@@ -7,8 +7,9 @@ import 'package:flix/src/Component/List.dart';
 import 'package:flix/src/screen/Bollywood.dart';
 import 'package:flix/src/screen/Homepage.dart';
 import 'package:flix/src/screen/Mp3.dart';
+import 'package:flix/src/screen/Mp3_player.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
 
 
 

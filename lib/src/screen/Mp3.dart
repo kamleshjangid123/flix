@@ -1,6 +1,18 @@
 import 'package:flix/src/Component/Flix.dart';
 import 'package:flix/src/screen/Homepage.dart';
+import 'package:flix/src/screen/Mp3_player.dart';
 import 'package:flutter/material.dart';
+import 'package:flix/src/extra/Cast.dart';
+import 'package:flix/src/Component/Flix.dart';
+import 'package:flix/src/extra/Footer.dart';
+import 'package:flix/src/Component/List.dart';
+import 'package:flix/src/extra/Play.dart';
+import 'package:flix/src/screen/Bollywood.dart';
+import 'package:flix/src/screen/Contact.dart';
+import 'package:flix/src/screen/Mp3.dart';
+import 'package:flix/src/screen/Setting.dart';
+import 'package:flutter/material.dart';
+
 
 class Mp3 extends StatefulWidget {
   const Mp3({super.key});
@@ -19,9 +31,18 @@ class _Mp3State extends State<Mp3> {
 var w =MediaQuery.of(context).size.width;
 var h =MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(title:Center(child:  
-      Text("Flix",style: TextStyle(color: Color.fromARGB(255, 98, 185, 232),fontSize: 35,fontWeight: FontWeight.bold,))
-      )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+       floatingActionButton:FloatingActionButton(
+        backgroundColor: Color.fromARGB(255, 98, 185, 232),
+        onPressed: () {  },
+        child:
+         TextButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Mp3_player())), 
+                    child:
+         Icon(Icons.play_arrow),)
+        
+                    
+      ),
+      
       body:SafeArea(child:
       ListView.separated(itemBuilder: (context, index){
         return ListTile(
@@ -52,19 +73,3 @@ var h =MediaQuery.of(context).size.height;
   }
 }
 
-
-/*
- bottomNavigationBar:Container(
-       height: h*.1,
-        width: w,
-        child:Center(child:  Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-             TextButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage())),
-                        child:
-          Text('Movies',style: TextStyle(fontSize: 25,color: Color.fromARGB(255, 98, 185, 232),fontWeight: FontWeight.bold ),),),
-          
-          Text('Music',style: TextStyle(fontSize: 25,color: Color.fromARGB(255, 98, 185, 232),fontWeight: FontWeight.bold ),)
-        ],),)
-      )
-      */
