@@ -25,6 +25,7 @@ class _Mp3State extends State<Mp3> {
   @override
   Widget build(BuildContext context) {
 
+    var songimages=['sintara.jpg','pathan.jpg','tamasha.jpg','tu jhuti.jpg','Raees.jpg'];
     var songname=['one','two','three','four','five'];
     var singername=['1st','2nd','3rd','4th','5th'];
     
@@ -48,11 +49,11 @@ var h =MediaQuery.of(context).size.height;
         return ListTile(
           leading:CircleAvatar(
             radius: 25,
-            backgroundImage: AssetImage('assets/images/music.jpg'),
+            backgroundImage: AssetImage('assets/images/songimages[index]'),
           ),
-          title: Text('song'),
-          subtitle: Text('Singer name'),
-          trailing: Icon(Icons.play_circle),
+          title: Text(songname[index]),
+          subtitle: Text(singername[index]),
+          trailing: Icon(Icons.play_circle,size: 35,),
          tileColor: Color.fromARGB(255, 194, 237, 244),
          contentPadding: EdgeInsets.all(5),
          
@@ -60,9 +61,11 @@ var h =MediaQuery.of(context).size.height;
       },
       itemCount: songname.length,
       
+      
       separatorBuilder: (context, index) {
         return Divider(height: 5,thickness: 5,color: Colors.white,);
       },
+      
       )
        
       ) ,
@@ -72,4 +75,3 @@ var h =MediaQuery.of(context).size.height;
     );
   }
 }
-

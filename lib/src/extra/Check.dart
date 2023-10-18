@@ -1,3 +1,20 @@
+import 'package:flutter/material.dart';
+
+class Check extends StatefulWidget {
+  const Check({super.key});
+
+  @override
+  State<Check> createState() => _CheckState();
+}
+
+class _CheckState extends State<Check> {
+  var k=['kam'];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Container(child:Text('k'),),);
+  }
+}
+
 /*
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
